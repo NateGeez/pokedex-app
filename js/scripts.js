@@ -5,9 +5,10 @@ let pokemonList = [
 
 ]
 
-for (let i=0; i < pokemonList.length; i++){
-    document.write ("<p>" + pokemonList[i].name + " (height: "
-    + pokemonList[i].height + ") " + "</p>");
-    if  (pokemonList[i].height > 8)
+function myLoopFunction(pokemon) {
+    document.write("</br>" + pokemon.name + " (height: " 
+    + pokemon.height + ") ");
+    if (pokemon.height > 8)
     document.write ("Wow, that's big!");
 }
+pokemonList.forEach(myLoopFunction);
