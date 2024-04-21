@@ -21,7 +21,7 @@ let pokemonRepository = (function () {
 })();
 
 // forEach loop
-pokemonList.forEach(function (pokemon) {
+pokemonRepository.getAll().forEach(function (pokemon) {
     if (pokemon.height >= 8) {
         document.write("</br>" + pokemon.name + "(height: " 
         + pokemon.height + ") Wow, that's big!");
