@@ -27,20 +27,16 @@ let pokemonRepository = (function() {
         let contentElement = document.createElement('p');
         contentElement.innerText = text;
 
-        //images
-        let container = document.querySelector('#image-container');
-
-        // Create an <img> element
-        let myImage = document.createElement('img');
-        myImage.src = imageUrl;
-        
-        container.appendChild(myImage);
+        //image created
+        let imageElement = document.createElement('img');
+        imageElement.src = imageUrl;
+        imageElement.classList.add('pokemon-image');
 
         //add created Nodes
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
         modal.appendChild(contentElement);
-        modal.appendChild(container);
+        modal.appendChild(imageElement);
         modalContainer.appendChild(modal);
         modalContainer.classList.add('is-visible');
     }
@@ -119,9 +115,9 @@ function loadDetails(item){
     return fetch(url).then(function (response) {
         return response.json();
     }).then(function (details) {
-        item.imageUrl = details.sprites.from_default;
+        item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.types = details.types.map(typeInfo => typeInfo.type.name).join(', ');
     }).catch(function (e) {
         console.error(e);
     });
@@ -130,7 +126,7 @@ function loadDetails(item){
   // Function to show details of a Pokémon (loads details and then shows modal)
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      showModal(pokemon.name, pokemon.height);
+      showModal(pokemon.name, "Height: " + pokemon.height, pokemon.imageUrl);
     });
   }
 
