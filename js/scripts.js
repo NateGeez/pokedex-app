@@ -94,6 +94,8 @@ let pokemonRepository = (function() {
     });
 }
 
+
+//Use AJAX to fetch pokemon
 function loadList() {
     return fetch(apiUrl).then(function (response) {
         return response.json();
