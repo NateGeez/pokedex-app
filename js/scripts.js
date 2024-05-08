@@ -76,31 +76,30 @@ function loadDetails(item){
   }
   
 
-  function showModal(item) {
-    let modalBody = $(".modal-body");
-    let modalTitle = $(".modal-title");
-    let modalHeader = $(".modal-header");
+  function showModal(title, text, imageUrl) {
+    //Modal title
+    let modalTitle = document.querySelector("#exampleModalLabel");
+    modalTitle.innerText = title;
+    
+    //Modal body and clear previous
+    let modalBody = document.querySelector(".modal-body");
+    modalBody.innerHTML ="";
 
-    let modalContainer = $('#modal-container');
-    modalContainer.classList.add('is-visible');
-    $('#modal-container').modal('show');
+    //Create content elements
+    let textElement = document.createElement("p");
+    textElement.innerText = text;
 
-    //clear existing content
-    modalTitle.empty();
-    modalBody.empty();
+    let imageElement = document.createElement("img");
+    imageElement.src = imageUrl;
+    imageElement.classList.add("pokemon-image");
 
-    //create element for name
-    let nameElement = $("<h1>" + item.name + "</h1>");
-    //create element for height
-    let heightElement = $("<p>" + "height: " + item.height +"</p>");
-    //create image element
-    let imageElement = $('<img class="modal-img" style="width:50%">');
-    imageElement.attr("src", item.imageUrl);
+    //Append new content
+    modalBody.appendChild(textElement);
+    modalBody.appendChild(imageElement);
 
-    modalTitle.append(nameElement);
-    modalBody.append(heightElement);
-    modalBody.append(imageElement);
-}
+    //Show the Bootstrap modal
+    $("#modal-container").modal("show");
+  }
 
 
 return {
@@ -122,62 +121,3 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
-
-
-// let modalContainer = document.querySelector('#modal-container');
-
-    // function showModal(title, text, imageUrl) {
-        
-        
-    //     //create modal
-    //     modalContainer.innerHTML ='';
-    //     let modal = document.createElement('div');
-    //     modal.classList.add('modal');
-
-    //     //create modal close button
-    //     let closeButtonElement = document.createElement('button');
-    //     closeButtonElement.classList.add('modal-close');
-    //     closeButtonElement.innerText = 'Close';
-    //     closeButtonElement.addEventListener('click', hideModal);
-
-    //     //create title
-    //     let titleElement = document.createElement('h1');
-    //     titleElement.innerText = title;
-
-    //     //create text
-    //     let contentElement = document.createElement('p');
-    //     contentElement.innerText = text;
-
-    //     //image created
-    //     let imageElement = document.createElement('img');
-    //     imageElement.src = imageUrl;
-    //     imageElement.classList.add('pokemon-image');
-
-    //     //add created Nodes
-    //     modal.appendChild(closeButtonElement);
-    //     modal.appendChild(titleElement);
-    //     modal.appendChild(contentElement);
-    //     modal.appendChild(imageElement);
-    //     modalContainer.appendChild(modal);
-    //     modalContainer.classList.add('is-visible');
-    // }
-
-    // function hideModal() {
-    //   modalContainer.classList.remove('is-visible');
-    // }
-
-    // //close modal by clicking escape key
-    // window.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    //     hideModal();  
-    //     }
-    // });
-    
-    // modalContainer.addEventListener('click', (e) => {
-    //     // Since this is also triggered when clicking INSIDE the modal
-    //     // We only want to close if the user clicks directly on the overlay
-    //     let target = e.target;
-    //     if (target === modalContainer) {
-    //     hideModal();
-    //     }
-    // });
