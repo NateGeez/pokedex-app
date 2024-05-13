@@ -25,7 +25,7 @@ let pokemonRepository = (function() {
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".list-group");
     let listpokemon = document.createElement("li");
-    listpokemon.classList.add("group-list-item");
+    listpokemon.classList.add("list-group-item");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("btn", "btn-primary");
@@ -68,10 +68,11 @@ function loadDetails(item){
     });
 }
 
+
   // Function to show details of a Pokémon (loads details and then shows modal)
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      showModal(pokemon.name, "Height: " + pokemon.height, pokemon.imageUrl);
+      showModal(pokemon.name, "Height: " + pokemon.height + "\n Types: " + pokemon.types, pokemon.imageUrl);
     });
   }
   
