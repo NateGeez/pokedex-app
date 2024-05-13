@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple JS App</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/styles.min.css" rel="stylesheet" type="text/css"/>
 
 
 </head>
 <body>
   <!-- Navigation bar --> 
-  <nav class="navbar navbar-light bg-light navbar-expand-sm fixed-top">
+  <nav class="navbar navbar-light bg-light navbar-expand-sm fixed-top navbar-custom">
     <a class="navbar-brand" href="#">
       <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png" 
       width="30" height="30" class="d-inline-block align-top" alt="">
       Pokedex </a>
   </nav>
+
+  <div class="m-5">
+    <ul class="list-group m-1"></ul>
+  </div>
 
    <!-- Modal -->
    <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,18 +37,14 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+          </div>
       </div>
     </div>
-  </div>
-  <div class="mt-5">
-    <ul class="list-group m-1"></ul>
   </div>
 
   <script src="js/promise-polyfill.js"></script>
   <script src="js/fetch.umd.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="dist/scripts.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
