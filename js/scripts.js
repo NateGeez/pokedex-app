@@ -38,7 +38,7 @@ let pokemonRepository = (function() {
 }
 
 
-//Use AJAX to fetch pokemon
+//JSON Fetch API
 function loadList() {
     return fetch(apiUrl).then(function (response) {
         return response.json();
