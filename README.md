@@ -1,4 +1,4 @@
-# Simple JS App
+# Pokedex App
 
 ## Pokemon Repository
 
