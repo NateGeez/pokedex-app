@@ -1,10 +1,10 @@
-Simple JS App
+# Simple JS App
 
-# Pokemon Repository
+## Pokemon Repository
 
 This repository provides functions to manage and display Pokemon data.
 
-# Dependencies
+## Technologies Used
 
 -This repository relies on Bootstrap for modal functionality and Fetch API for making HTTP requests.
 HTML
