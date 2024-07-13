@@ -10,5 +10,4 @@ This repository provides functions to manage and display Pokemon data.
 HTML
 JavaScript
 CSS
-JSON
 Bootstrap
